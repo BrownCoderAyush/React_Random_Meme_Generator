@@ -1,3 +1,9 @@
+*{
+  padding: 0px;
+  margin: 0px;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
 .App {
   text-align: center;
 }
