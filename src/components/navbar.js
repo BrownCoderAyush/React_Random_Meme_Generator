@@ -8,7 +8,7 @@ export default function navbar(){
             <img className="nav-logo" src={logo} alt="logo" />
             <h2>Meme Generator</h2>
             </div>
-            <h4 className="header-project">React Course - Project 3</h4>
+            <h4 className="header-project">React Project 2</h4>
 
         </header>
     )

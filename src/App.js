@@ -1,7 +1,8 @@
-import logo from './logo.svg';
+
 import Navbar from './components/navbar.js';
 import Meme from './components/meme.js'
-import './App.css';
+
+import "./css/App.css";
 
 function App() {
   return (
