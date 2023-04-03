@@ -2,12 +2,22 @@ import React from "react";
 import "../css/meme.css"
 
 export default function Meme() {
-
+    const [memeData , setMemeData] = React.useState({});
+    console.log("heelo");
     const [meme, setMeme] = React.useState({
         topText: "",
         bottomText: "",
         randomImage: "https://i.imgflip.com/30b1gx.jpg"
     })
+
+    React.useEffect(()=>{
+        async function fetchData(){
+            const response = await fetch('https://api.imgflip.com/get_memes');
+            const data = await response.json();
+            setMemeData(data.data.memes);
+        }
+        fetchData();
+    },[]);
 
     function handleChange(event) {
         const data = event.target;
@@ -15,11 +25,8 @@ export default function Meme() {
     }
 
     async function handleClicked() {
-        const response = await fetch("https://api.imgflip.com/get_memes");
-        const data = await response.json();
-        const memes = data.data.memes;
-        const randomNumber = Math.floor(Math.random() * memes.length);
-        const url = memes[randomNumber].url;
+        const randomNumber = Math.floor(Math.random() * memeData.length);
+        const url = memeData[randomNumber].url;
         
         setMeme((prevState) => {
             return {
